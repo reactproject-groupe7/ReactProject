@@ -1,4 +1,6 @@
 {
     "mongoURI": "mongodb+srv://Najla:root@devconnector-xmohk.mongodb.net/test?retryWrites=true&w=majority",
-    "jwtSecret": "root"
+    "jwtSecret": "root",
+    "githubClientId": "35525964b3996e1641a5",
+    "githubSecret": "caf6c2dd33a2ed1c1e7c19d5e5169c71382214b7"
 }
