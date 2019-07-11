@@ -7,11 +7,11 @@ const Landing = () => {
         <div className="landing-inner">
           <h1 className="x-large">Code -> Connects</h1>
           <p className="lead">
-           Creer et consulte des articles liés au dévelopement 
+           Crée et consulte des articles liés à la progrmamation 
           </p>
           <div className="buttons">
-            <a href="register.html" className="btn btn-primary">Sign Up</a>
-            <a href="login.html" className="btn btn-light">Login</a>
+            <a href="register.html" className="btn btn-primary">S'inscrire</a>
+            <a href="login.html" className="btn btn-light">Connexion </a>
           </div>
         </div>
       </div>
