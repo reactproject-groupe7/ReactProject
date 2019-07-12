@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Dashboard = () => {
     return (
@@ -6,6 +7,10 @@ const Dashboard = () => {
             Dashboard
         </div>
     )
+}
+Dashboard.propTypes = {
+    
+    
 }
 
 export default Dashboard
