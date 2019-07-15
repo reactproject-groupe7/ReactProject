@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcryptjs');
 const auth = require('../../middleware/auth');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const bcrypt = require('bcryptjs');
 const {
     check,
     validationResult
@@ -11,9 +11,9 @@ const {
 
 const User = require('../../models/User');
 
-// @route    GET api/auth
-// @desc     Test route
-// @access   Public
+// @route  GET api/auth
+// @desc   Test route
+// @access Public
 router.get('/', auth, async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select('-password');
@@ -24,14 +24,14 @@ router.get('/', auth, async (req, res) => {
     }
 });
 
-// @route    POST api/auth
-// @desc     Authenticate user & get token
-// @access   Public
+// @route  POST api/auth
+// @desc   authentifie  user and get token
+// @access Public
 router.post(
     '/',
     [
-        check('email', 'Entrez une adreesse email valide').isEmail(),
-        check('password', 'Mot de passe obligatoire').exists()
+        check('email', 'Entre une adresse valide ').isEmail(),
+        check('password', 'password required').exists()
     ],
     async (req, res) => {
         const errors = validationResult(req);
@@ -47,10 +47,10 @@ router.post(
         } = req.body;
 
         try {
+
             let user = await User.findOne({
                 email
             });
-
             if (!user) {
                 return res
                     .status(400)
@@ -92,8 +92,8 @@ router.post(
                 }
             );
         } catch (err) {
-            console.error(err.message);
-            res.status(500).send('Server error');
+            console.log(err.message);
+            res.status(500).send('server error');
         }
     }
 );

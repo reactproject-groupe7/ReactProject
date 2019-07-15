@@ -26,15 +26,15 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      < h1 className = 'large large-primary-color'>Connectez-vous</h1>
+      <h1 className='large text-primary'>Connexion </h1>
       <p className='lead'>
-        <i className='fas fa-user' /> Connectez vous à votre compte
+        <i className='fas fa-user' /> 
       </p>
       <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <input
             type='email'
-            placeholder='Adresse email'
+            placeholder='Addresse email'
             name='email'
             value={email}
             onChange={e => onChange(e)}
@@ -44,7 +44,7 @@ const Login = ({ login, isAuthenticated }) => {
         <div className='form-group'>
           <input
             type='password'
-            placeholder='mot de passe'
+            placeholder='Mot de passe'
             name='password'
             value={password}
             onChange={e => onChange(e)}
@@ -54,18 +54,21 @@ const Login = ({ login, isAuthenticated }) => {
         <input type='submit' className='btn btn-primary' value='Connexion' />
       </form>
       <p className='my-1'>
-        Vous n'avez pas de compte? <Link to='/register'>Inscrivez-vous</Link>
+        Vous n'avez de compte ? <Link to='/register'>Inscrivez-vous </Link>
       </p>
     </Fragment>
   );
 };
+
 Login.propTypes = {
   login: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool
 };
+
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
+
 export default connect(
   mapStateToProps,
   { login }

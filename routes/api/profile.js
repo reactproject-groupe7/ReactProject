@@ -3,7 +3,6 @@ const request = require('request');
 const config = require('config');
 const router = express.Router();
 const auth = require('../../middleware/auth');
-
 const {
     check,
     validationResult
@@ -11,6 +10,7 @@ const {
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
+const Post = require('../../models/Post');
 // @route  GET api/profile/me
 // @desc   GET current users profile
 // @access Private
@@ -103,7 +103,7 @@ router.post(
             if (profile) {
 
 
-                // Update
+                // maaj
                 profile = await Profile.findOneAndUpdate({
                     user: req.user.id
                 }, {
@@ -115,7 +115,7 @@ router.post(
                 return res.json(profile);
             }
 
-            // Create
+            // Création profil
             profile = new Profile(profileFields);
 
             await profile.save();
@@ -181,7 +181,7 @@ router.delete('/', auth, async (req, res) => {
         });
 
         res.json({
-            msg: 'User deleted'
+            msg: 'Utilisateur supprimé'
         });
     } catch (err) {
         console.error(err.message);
