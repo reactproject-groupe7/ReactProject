@@ -1,18 +1,18 @@
-import React, { Fragment, useState } from 'react';
-import { withRouter, Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { addExperience } from '../../actions/profile.js';
+import React, { Fragment, useState } from "react";
+import { withRouter, Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { addExperience } from "../../actions/profile.js";
 
 const AddExperience = ({ addExperience, history }) => {
   const [formData, setFormData] = useState({
-    company: '',
-    title: '',
-    location: '',
-    from: '',
-    to: '',
+    company: "",
+    title: "",
+    location: "",
+    from: "",
+    to: "",
     current: false,
-    description: ''
+    description: ""
   });
 
   const [toDateDisabled, toggleDisabled] = useState(false);
@@ -24,19 +24,18 @@ const AddExperience = ({ addExperience, history }) => {
 
   return (
     <Fragment>
-      <h1 class='large text-primary'>Ajout d'expérience</h1>
-      <p class='lead'>
-        <i class='fas fa-code-branch' />
+      <h1 className='large text-primary'>Ajout d'expériences</h1>
+      <p className='lead'>
+        <i className='fas fa-code-branch' />
       </p>
       <small>* obligatoire</small>
       <form
-        class='form'
+        className='form'
         onSubmit={e => {
           e.preventDefault();
           addExperience(formData, history);
-        }}
-      >
-        <div class='form-group'>
+        }}>
+        <div className='form-group'>
           <input
             type='text'
             placeholder='Nom du poste occupé'
@@ -46,7 +45,7 @@ const AddExperience = ({ addExperience, history }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        <div class='form-group'>
+        <div className='form-group'>
           <input
             type='text'
             placeholder='Entreprise'
@@ -56,7 +55,7 @@ const AddExperience = ({ addExperience, history }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        <div class='form-group'>
+        <div className='form-group'>
           <input
             type='text'
             placeholder='Région'
@@ -65,7 +64,7 @@ const AddExperience = ({ addExperience, history }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        <div class='form-group'>
+        <div className='form-group'>
           <h4>Depuis Date</h4>
           <input
             type='date'
@@ -74,7 +73,7 @@ const AddExperience = ({ addExperience, history }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        <div class='form-group'>
+        <div className='form-group'>
           <p>
             <input
               type='checkbox'
@@ -85,21 +84,21 @@ const AddExperience = ({ addExperience, history }) => {
                 setFormData({ ...formData, current: !current });
                 toggleDisabled(!toDateDisabled);
               }}
-            />{' '}
-            Current Job
+            />{" "}
+            Actuel
           </p>
         </div>
-        <div class='form-group'>
+        <div className='form-group'>
           <h4>à Date</h4>
           <input
             type='date'
             name='to'
             value={to}
             onChange={e => onChange(e)}
-            disabled={toDateDisabled ? 'disabled' : ''}
+            disabled={toDateDisabled ? "disabled" : ""}
           />
         </div>
-        <div class='form-group'>
+        <div className='form-group'>
           <textarea
             name='description'
             cols='30'
@@ -109,9 +108,9 @@ const AddExperience = ({ addExperience, history }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        <input type='submit' class='btn btn-primary my-1' />
-        <Link class='btn btn-light my-1' to='./dashboard'>
-         retour
+        <input type='submit' className='btn btn-primary my-1' />
+        <Link className='btn btn-light my-1' to='./dashboard'>
+          retour
         </Link>
       </form>
     </Fragment>

@@ -1,9 +1,8 @@
-
-import React, { Fragment, useState, useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { createProfile, getCurrentProfile } from '../../actions/profile';
+import React, { Fragment, useState, useEffect } from "react";
+import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { createProfile, getCurrentProfile } from "../../actions/profile";
 
 const EditProfil = ({
   profile: { profile, loading },
@@ -12,18 +11,18 @@ const EditProfil = ({
   history
 }) => {
   const [formData, setFormData] = useState({
-    company: '',
-    website: '',
-    location: '',
-    status: '',
-    skills: '',
-    githubusername: '',
-    bio: '',
-    twitter: '',
-    facebook: '',
-    linkedin: '',
-    youtube: '',
-    instagram: ''
+    company: "",
+    website: "",
+    location: "",
+    status: "",
+    skills: "",
+    githubusername: "",
+    bio: "",
+    twitter: "",
+    facebook: "",
+    linkedin: "",
+    youtube: "",
+    instagram: ""
   });
 
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
@@ -32,19 +31,19 @@ const EditProfil = ({
     getCurrentProfile();
 
     setFormData({
-      company: loading || !profile.company ? '' : profile.company,
-      website: loading || !profile.website ? '' : profile.website,
-      location: loading || !profile.location ? '' : profile.location,
-      status: loading || !profile.status ? '' : profile.status,
-      skills: loading || !profile.skills ? '' : profile.skills.join(','),
+      company: loading || !profile.company ? "" : profile.company,
+      website: loading || !profile.website ? "" : profile.website,
+      location: loading || !profile.location ? "" : profile.location,
+      status: loading || !profile.status ? "" : profile.status,
+      skills: loading || !profile.skills ? "" : profile.skills.join(","),
       githubusername:
-        loading || !profile.githubusername ? '' : profile.githubusername,
-      bio: loading || !profile.bio ? '' : profile.bio,
-      twitter: loading || !profile.social ? '' : profile.social.twitter,
-      facebook: loading || !profile.social ? '' : profile.social.facebook,
-      linkedin: loading || !profile.social ? '' : profile.social.linkedin,
-      youtube: loading || !profile.social ? '' : profile.social.youtube,
-      instagram: loading || !profile.social ? '' : profile.social.instagram
+        loading || !profile.githubusername ? "" : profile.githubusername,
+      bio: loading || !profile.bio ? "" : profile.bio,
+      twitter: loading || !profile.social ? "" : profile.social.twitter,
+      facebook: loading || !profile.social ? "" : profile.social.facebook,
+      linkedin: loading || !profile.social ? "" : profile.social.linkedin,
+      youtube: loading || !profile.social ? "" : profile.social.youtube,
+      instagram: loading || !profile.social ? "" : profile.social.instagram
     });
   }, [loading, getCurrentProfile]);
 
@@ -75,21 +74,21 @@ const EditProfil = ({
     <Fragment>
       <h1 className='large text-primary'>Créer ton profil</h1>
       <p className='lead'>
-        <i className='fas fa-user' /> Donne nous les informations qui nous permettra de mieux te connaitre
+        <i className='fas fa-user' /> Donne nous les informations qui nous
+        permettrons de mieux te connaitre
       </p>
-      <small>* = required field</small>
+      <small>* = obligatoire</small>
       <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <select name='status' value={status} onChange={e => onChange(e)}>
             <option value='0'>Sélectionne un domaine d'activité</option>
-            <option value='Developer'>Developpeur</option>
-            <option value='Junior Developer'>Junior Developpeur
-            </option>
-            <option value='Senior Developeur'>Senior Developpeur</option>
+            <option value='Developpeur'>Developpeur</option>
+            <option value='Junior Developpeur'>Junior Developpeur</option>
+            <option value='Senior Developpeur'>Senior Developpeur</option>
             <option value='Manager'>Chef de projet</option>
-            <option value='Student or Learning'>Etudiant</option>
-            <option value='Instructor'>Professeur</option>
-            <option value='Intern'>Passionné</option>
+            <option value='Etudiant'>Etudiant</option>
+            <option value='Professeur'>Professeur</option>
+            <option value='Passionné'>Passionné</option>
             <option value='Autre'>Autres</option>
           </select>
         </div>
@@ -102,7 +101,7 @@ const EditProfil = ({
             onChange={e => onChange(e)}
           />
           <small className='form-text'>
-          Entreprise dans laquelle tu travailles ou le nom de ton entreprise 
+            Entreprise dans laquelle tu travailles ou le nom de ton entreprise
           </small>
         </div>
         <div className='form-group'>
@@ -150,12 +149,12 @@ const EditProfil = ({
             onChange={e => onChange(e)}
           />
           <small className='form-text'>
-          Si vous souhaitez faire apparaitre vos derniers repository de github 
+            Si vous souhaitez faire apparaitre vos derniers repository de github
           </small>
         </div>
         <div className='form-group'>
           <textarea
-            placeholder='Présenteez-vous '
+            placeholder='Présentez-vous '
             name='bio'
             value={bio}
             onChange={e => onChange(e)}
@@ -166,8 +165,7 @@ const EditProfil = ({
           <button
             onClick={() => toggleSocialInputs(!displaySocialInputs)}
             type='button'
-            className='btn btn-light'
-          >
+            className='btn btn-light'>
             Ajoutez les liens de vos réseaux sociaux
           </button>
           <span>Optional</span>

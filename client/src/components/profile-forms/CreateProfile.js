@@ -1,22 +1,22 @@
-import React, { useState, Fragment } from 'react';
-import { withRouter, Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { createProfile } from '../../actions/profile';
+import React, { useState, Fragment } from "react";
+import { withRouter, Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { createProfile } from "../../actions/profile";
 
 const CreateProfile = ({ createProfile, history }) => {
   const [formData, setFormData] = useState({
-    company: '',
-    website: '',
-    location: '',
-    status: '',
-    skills: '',
-    bio: '',
-    githubusername: '',
-    youtube: '',
-    twitter: '',
-    facebook: '',
-    instagram: ''
+    company: "",
+    website: "",
+    location: "",
+    status: "",
+    skills: "",
+    bio: "",
+    githubusername: "",
+    youtube: "",
+    twitter: "",
+    facebook: "",
+    instagram: ""
   });
 
   const [displaySocialInput, toggleSocialInputs] = useState(false);
@@ -39,7 +39,7 @@ const CreateProfile = ({ createProfile, history }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = e => {
-    console.log('submit');
+    console.log("submit");
     e.preventDefault();
     createProfile(formData, history);
   };
@@ -48,25 +48,23 @@ const CreateProfile = ({ createProfile, history }) => {
     <Fragment>
       <h1 className='large text-primary'>Créer ton profil</h1>
       <p className='lead'>
-        <i className='fas fa-user' /> 
+        <i className='fas fa-user' />
       </p>
       <small>* = obligatoire</small>
       <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <select name='status' value={status} onChange={e => onChange(e)}>
             <option value='0'>Sélectionne un domaine d'activité</option>
-            <option value='Developer'>Développeur</option>
-            <option value='Junior Developer'>Junior Developpeur</option>
-            <option value='Senior Developer'>Senior Developpeur</option>
+            <option value='Développeur'>Développeur</option>
+            <option value='Junior Developpeur'>Junior Developpeur</option>
+            <option value='Senior Developpeur'>Senior Developpeur</option>
             <option value='Manager'>Chef de projet</option>
-            <option value='Student or Learning'>Etudiant</option>
-            <option value='Instructor'>Professeurs</option>
+            <option value='Etudiant'>Etudiant</option>
+            <option value='Professeur'>Professeurs</option>
             <option value='Passionné'>Passionné</option>
-            <option value='Other'>Autres</option>
+            <option value='Autres'>Autres</option>
           </select>
-          <small className='form-text'>
-        * Où en es tu dans ta carrière ?
-          </small>
+          <small className='form-text'>* Où en es tu dans ta carrière ?</small>
         </div>
         <div className='form-group'>
           <input
@@ -77,19 +75,19 @@ const CreateProfile = ({ createProfile, history }) => {
             onChange={e => onChange(e)}
           />
           <small className='form-text'>
-           L'entreprise où tu exerces actuellement 
+            L'entreprise où tu exerces actuellement
           </small>
         </div>
         <div className='form-group'>
           <input
             type='text'
-            placeholder='Website'
+            placeholder='Site web '
             name='website'
             value={website}
             onChange={e => onChange(e)}
           />
           <small className='form-text'>
-           ceci peut êtree le site de ton entreprise ou ton site personnel
+            le site de ton entreprise ou ton site personnel
           </small>
         </div>
         <div className='form-group'>
@@ -100,9 +98,7 @@ const CreateProfile = ({ createProfile, history }) => {
             value={location}
             onChange={e => onChange(e)}
           />
-          <small className='form-text'>
-           ville ou région où tu exerces 
-          </small>
+          <small className='form-text'>Ville ou région où tu exerces</small>
         </div>
         <div className='form-group'>
           <input
@@ -125,7 +121,7 @@ const CreateProfile = ({ createProfile, history }) => {
             onChange={e => onChange(e)}
           />
           <small className='form-text'>
-          Si tu veux que l'on affiche tes derniers dépots github 
+            Si tu veux que l'on affiche tes derniers dépots github
           </small>
         </div>
         <div className='form-group'>
@@ -142,11 +138,10 @@ const CreateProfile = ({ createProfile, history }) => {
           <button
             onClick={() => toggleSocialInputs(!displaySocialInput)}
             type='button'
-            className='btn btn-light'
-          >
-            Ajoute tes liens de reseaux sociaux 
+            className='btn btn-light'>
+            Ajoute tes liens de reseaux sociaux
           </button>
-          <span></span>
+          <span />
         </div>
 
         {displaySocialInput && (
@@ -199,7 +194,7 @@ const CreateProfile = ({ createProfile, history }) => {
 
         <input type='submit' className='btn btn-primary my-1' />
         <Link className='btn btn-light my-1' to='/dashboard'>
-         Retour
+          Retour
         </Link>
       </form>
     </Fragment>

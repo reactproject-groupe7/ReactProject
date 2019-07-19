@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const ProfileTop = ({
   profile: {
@@ -33,11 +33,6 @@ const ProfileTop = ({
         {social && social.facebook && (
           <a href={social.facebook} target='_blank' rel='noopener noreferrer'>
             <i class='fab fa-facebook fa-2x' />
-          </a>
-        )}
-        {social && social.twitter && (
-          <a href={social.twitter} target='_blank' rel='noopener noreferrer'>
-            <i class='fab fa-twitter fa-2x' />
           </a>
         )}
         {social && social.instagram && (
