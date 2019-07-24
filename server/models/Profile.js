@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const db = require('../config/db');
 
 const ProfileSchema = new mongoose.Schema({
   user: {
@@ -111,4 +112,6 @@ const ProfileSchema = new mongoose.Schema({
   }
 });
 
-module.exports = Profile = mongoose.model('profile', ProfileSchema);
+const Profile = db.model('Profile', ProfileSchema);
+
+module.exports = Profile;

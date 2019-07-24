@@ -21,7 +21,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) {
-      setAlert('Passwords do not match', 'danger');
+      setAlert('Les mots de passe ne sont pas identiques', 'danger');
     } else {
       register({ name, email, password });
     }
@@ -35,7 +35,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     <Fragment>
       <h1 className='large'>Inscription</h1>
       <p className='lead'>
-        <i className='fas fa-user' /> Inscrivez-vous 
+        <i className='fas fa-user' /> Inscrivez-vous
       </p>
       <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>

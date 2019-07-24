@@ -3,8 +3,6 @@ const router = express.Router();
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('config');
-
 const {
     check,
     validationResult
@@ -44,7 +42,7 @@ router.post(
             password
         } = req.body;
         try {
-            // verifie si l'user exist 
+            // verifie si l'user exist
             let user = await User.findOne({
                 email
             });
@@ -68,21 +66,21 @@ router.post(
             })
 
 
-            // eencrypt password 
+            // eencrypt password
             const salt = await bcrypt.genSalt(10);
 
             user.password = await bcrypt.hash(password, salt);
 
             await user.save();
 
-            //jwt 
+            //jwt
             const payload = {
                 user: {
                     id: user.id
                 }
             }
 
-            jwt.sign(payload, config.get('jwtSecret'), {
+            jwt.sign(payload, process.env.JWT_SECRET, {
                     expiresIn: 360000
 
                 },
@@ -102,6 +100,5 @@ router.post(
 
     }
 );
-
 
 module.exports = router;

@@ -12,6 +12,8 @@ import {
 } from "./types";
 import setAuthToken from "../utils/setAuthToken";
 
+import { API_ENDPOINT } from '../constants';
+
 //Chargement de l'utilisateur
 export const loadUser = () => async dispatch => {
   if (localStorage.token) {
@@ -19,7 +21,7 @@ export const loadUser = () => async dispatch => {
   }
 
   try {
-    const res = await axios.get("/api/auth");
+    const res = await axios.get(`${API_ENDPOINT}/api/auth`);
     dispatch({
       type: USER_LOADED,
       payload: res.data
@@ -47,7 +49,7 @@ export const register = ({ name, email, password }) => async dispatch => {
   console.log(body);
 
   try {
-    const res = await axios.post("/api/users/", body, config);
+    const res = await axios.post(`${API_ENDPOINT}/api/users/`, body, config);
     dispatch({
       type: REGISTER_SUCCESS,
       payload: res.data
@@ -80,7 +82,7 @@ export const login = (email, password) => async dispatch => {
   console.log(body);
   console.log(config);
   try {
-    const res = await axios.post("/api/auth", body, config);
+    const res = await axios.post(`${API_ENDPOINT}/api/auth`, body, config);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data
