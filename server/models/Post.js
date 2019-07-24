@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const db = require('../config/db');
+
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
@@ -48,4 +50,6 @@ const PostSchema = new Schema({
   }
 });
 
-module.exports = Post = mongoose.model('post', PostSchema);
+const Post = db.model('Post', PostSchema);
+
+module.exports = Post;
